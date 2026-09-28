@@ -1,5 +1,6 @@
 import { TaskCard } from 'entities/task'
 import type { Task } from 'entities/task'
+import { FilterButton } from 'shared/ui/FilterButton'
 import type { Filter } from '../model/useTasks'
 import styles from './TaskList.module.css'
 
@@ -21,13 +22,12 @@ export function TaskList({ tasks, filter, onFilterChange, onRemove }: Props) {
     <div>
       <div className={styles.filters}>
         {filters.map((item) => (
-          <button
+          <FilterButton
             key={item.value}
-            className={item.value === filter ? styles.filterActive : styles.filter}
+            label={item.label}
+            active={item.value === filter}
             onClick={() => onFilterChange(item.value)}
-          >
-            {item.label}
-          </button>
+          />
         ))}
       </div>
 
