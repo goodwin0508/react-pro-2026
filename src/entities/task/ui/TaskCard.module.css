@@ -1,0 +1,24 @@
+.card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 6px;
+}
+
+.status {
+  color: #9e9e9e;
+}
+
+.statusDone {
+  color: #2e7d32;
+}
+
+.title {
+  color: #1c1b1a;
+}
+
+.titleDone {
+  color: #9e9e9e;
+  text-decoration: line-through;
+}
