@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { TaskCard } from 'entities/task'
 import type { Task } from 'entities/task'
 import { FilterButton } from 'shared/ui/FilterButton'
@@ -17,7 +18,7 @@ const filters: { value: Filter; label: string }[] = [
   { value: 'incomplete', label: 'Незавершённые' },
 ]
 
-export function TaskList({ tasks, filter, onFilterChange, onRemove }: Props) {
+export const TaskList = memo(function TaskList({ tasks, filter, onFilterChange, onRemove }: Props) {
   return (
     <div>
       <div className={styles.filters}>
@@ -48,4 +49,4 @@ export function TaskList({ tasks, filter, onFilterChange, onRemove }: Props) {
       </div>
     </div>
   )
-}
+})
