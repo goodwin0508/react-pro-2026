@@ -13,3 +13,7 @@ npm run dev     # http://localhost:5173
 npm run build
 npm run lint
 ```
+
+## Доп. задание (урок 2)
+
+Скриншоты профилирования и разбор — в [LESSON-2.md](LESSON-2.md).
