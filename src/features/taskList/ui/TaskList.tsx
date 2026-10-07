@@ -35,16 +35,7 @@ export const TaskList = memo(function TaskList({ tasks, filter, onFilterChange, 
       <div className={styles.list}>
         {tasks.length === 0 && <p className={styles.empty}>Задач нет</p>}
         {tasks.map((task) => (
-          <div key={task.id} className={styles.row}>
-            <TaskCard task={task} />
-            <button
-              className={styles.remove}
-              onClick={() => onRemove(task.id)}
-              aria-label={`Удалить задачу «${task.title}»`}
-            >
-              ×
-            </button>
-          </div>
+          <TaskCard key={task.id} task={task} onRemove={onRemove} />
         ))}
       </div>
     </div>
