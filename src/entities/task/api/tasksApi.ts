@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { baseApi } from 'shared/api'
 import type { Task } from '../model/types'
 
 type TodoDto = {
@@ -7,10 +7,7 @@ type TodoDto = {
   completed: boolean
 }
 
-export const tasksApi = createApi({
-  reducerPath: 'tasksApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://jsonplaceholder.typicode.com/' }),
-  tagTypes: ['Tasks'],
+export const tasksApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getTasks: build.query<Task[], void>({
       query: () => 'todos',
