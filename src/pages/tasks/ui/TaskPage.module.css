@@ -1,3 +1,19 @@
 .page {
   padding: 0 24px 24px;
 }
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.link {
+  padding: 6px 12px;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  background: #fff;
+  color: #1c1b1a;
+  text-decoration: none;
+}

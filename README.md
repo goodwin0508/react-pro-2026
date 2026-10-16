@@ -21,3 +21,7 @@ npm run lint
 ## Доп. задание (урок 3)
 
 Общий `baseApi` и `injectEndpoints` — разбор в [LESSON-3.md](LESSON-3.md).
+
+## Доп. задание (урок 4)
+
+Мастер подписки на `useActionState` — разбор в [LESSON-4.md](LESSON-4.md).
