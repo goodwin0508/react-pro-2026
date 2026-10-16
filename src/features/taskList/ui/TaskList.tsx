@@ -9,7 +9,7 @@ type Props = {
   tasks: Task[]
   filter: Filter
   onFilterChange: (filter: Filter) => void
-  onRemove: (id: string) => void
+  onRemove: (id: number) => void
 }
 
 const filters: { value: Filter; label: string }[] = [

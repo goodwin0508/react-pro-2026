@@ -2,6 +2,9 @@
   "name": "lesson-01",
   "private": true,
   "version": "0.0.0",
+  "engines": {
+    "node": ">=20"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,8 +15,10 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.13.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "react-redux": "^9.3.0",
     "react-router": "^8.4.0"
   },
   "devDependencies": {
