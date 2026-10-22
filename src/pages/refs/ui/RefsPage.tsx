@@ -1,4 +1,10 @@
-import { ClickTimer, DebouncedLogger, FocusTracker, PreviousInput } from 'features/refExamples'
+import {
+  ClickTimer,
+  DebouncedLogger,
+  FocusTracker,
+  PreviousInput,
+  WebSocketLogger,
+} from 'features/refExamples'
 import styles from './RefsPage.module.css'
 
 export function RefsPage() {
@@ -9,6 +15,7 @@ export function RefsPage() {
       <PreviousInput />
       <FocusTracker />
       <DebouncedLogger />
+      <WebSocketLogger />
     </div>
   )
 }
