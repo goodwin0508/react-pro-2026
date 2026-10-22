@@ -9,6 +9,9 @@ export function TaskPage() {
         <Link className={styles.link} to="/register">
           Регистрация и подписка
         </Link>
+        <Link className={styles.link} to="/refs">
+          Примеры useRef
+        </Link>
       </div>
       <h1>Мои задачи</h1>
       <TaskWidget />
