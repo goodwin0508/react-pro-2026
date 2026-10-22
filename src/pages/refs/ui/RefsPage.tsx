@@ -1,4 +1,4 @@
-import { ClickTimer } from 'features/refExamples'
+import { ClickTimer, PreviousInput } from 'features/refExamples'
 import styles from './RefsPage.module.css'
 
 export function RefsPage() {
@@ -6,6 +6,7 @@ export function RefsPage() {
     <div className={styles.page}>
       <h1>Примеры useRef</h1>
       <ClickTimer />
+      <PreviousInput />
     </div>
   )
 }
