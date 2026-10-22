@@ -25,3 +25,7 @@ npm run lint
 ## Доп. задание (урок 4)
 
 Мастер подписки на `useActionState` — разбор в [LESSON-4.md](LESSON-4.md).
+
+## Доп. задание (урок 5)
+
+Примеры `useRef` на `/refs` — разбор в [LESSON-5.md](LESSON-5.md).
