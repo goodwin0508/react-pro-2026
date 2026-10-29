@@ -5,7 +5,7 @@ import { login, useAuth } from 'features/authRouting'
 import styles from './LoginPage.module.css'
 
 export function LoginPage() {
-  const { signIn } = useAuth()
+  const { signIn, error: authError } = useAuth()
   const navigate = useNavigate()
 
   const [email, setEmail] = useState('')
@@ -19,12 +19,11 @@ export function LoginPage() {
     setIsPending(true)
 
     try {
-      const { token, data } = await login(email, password)
-      signIn(token, data)
+      const { accessToken, user } = await login(email, password)
+      signIn(accessToken, user)
       navigate('/profile', { replace: true })
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : 'Не удалось войти')
-    } finally {
       setIsPending(false)
     }
   }
@@ -59,7 +58,7 @@ export function LoginPage() {
           {isPending ? 'Входим…' : 'Войти'}
         </button>
 
-        {error && <p className={styles.error}>{error}</p>}
+        {(error ?? authError) && <p className={styles.error}>{error ?? authError}</p>}
       </form>
     </div>
   )

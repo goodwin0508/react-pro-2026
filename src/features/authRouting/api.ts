@@ -2,9 +2,28 @@ import type { User } from './types'
 
 const BASE_URL = 'https://api.v2.react-learning.ru'
 
+export class ApiError extends Error {
+  status: number
+
+  constructor(status: number, message: string) {
+    super(message)
+    this.status = status
+  }
+}
+
 type LoginResponse = {
-  token: string
-  data: User
+  user: User
+  accessToken: string
+}
+
+async function readError(response: Response, fallback: string) {
+  try {
+    const body = await response.json()
+    const message = Array.isArray(body?.message) ? body.message.join(', ') : body?.message
+    return new ApiError(response.status, message || fallback)
+  } catch {
+    return new ApiError(response.status, fallback)
+  }
 }
 
 export async function login(email: string, password: string): Promise<LoginResponse> {
@@ -15,20 +34,20 @@ export async function login(email: string, password: string): Promise<LoginRespo
   })
 
   if (!response.ok) {
-    const message = response.status === 401 ? 'Неверный email или пароль' : 'Не удалось войти'
-    throw new Error(message)
+    throw await readError(response, 'Не удалось войти')
   }
 
   return response.json()
 }
 
-export async function fetchCurrentUser(token: string): Promise<User> {
+export async function fetchCurrentUser(token: string, signal?: AbortSignal): Promise<User> {
   const response = await fetch(`${BASE_URL}/users/me`, {
     headers: { Authorization: `Bearer ${token}` },
+    signal,
   })
 
   if (!response.ok) {
-    throw new Error('Не удалось загрузить профиль')
+    throw await readError(response, 'Не удалось загрузить профиль')
   }
 
   return response.json()
