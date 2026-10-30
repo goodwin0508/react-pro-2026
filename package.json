@@ -13,7 +13,8 @@
     "build:app:dev": "tsx build-hw/configs/esbuild.app.config.ts --dev",
     "build:lib": "tsx build-hw/configs/esbuild.lib.config.ts",
     "build:lib:dev": "tsx build-hw/configs/esbuild.lib.config.ts --dev",
-    "build:hw": "npm run build:app && npm run build:lib",
+    "build:lib:swc": "swc build-hw/lib --config-file build-hw/configs/.swcrc.esm.json --out-dir build-hw/dist/lib-swc/esm --strip-leading-paths && swc build-hw/lib --config-file build-hw/configs/.swcrc.cjs.json --out-dir build-hw/dist/lib-swc/cjs --strip-leading-paths",
+    "build:hw": "npm run build:app && npm run build:lib && npm run build:lib:swc",
     "lint": "eslint .",
     "preview": "vite preview",
     "format": "prettier --write .",
@@ -31,6 +32,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@swc/cli": "^0.8.2",
+    "@swc/core": "^1.16.20",
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
