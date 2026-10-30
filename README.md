@@ -29,3 +29,7 @@ npm run lint
 ## Доп. задание (урок 5)
 
 Примеры `useRef` на `/refs` — разбор в [LESSON-5.md](LESSON-5.md).
+
+## Доп. задание (урок 7)
+
+Сборка через esbuild и swc в папке `build-hw/` — разбор в [LESSON-7.md](LESSON-7.md).
